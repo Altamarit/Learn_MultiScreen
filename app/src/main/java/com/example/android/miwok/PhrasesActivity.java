@@ -27,8 +27,7 @@ public class PhrasesActivity extends AppCompatActivity {
         words.add(new Word("Come here.", "әnni'nem"));
 
         //  Create array adapter
-//        ArrayAdapter<Word> itemsAdapter = new ArrayAdapter<Word>(this, android.R.layout.simple_list_item_1, words);
-        WordAdapter itemsAdapter = new WordAdapter(this, words);
+        WordAdapter itemsAdapter = new WordAdapter(this, words,R.color.category_phrases);
 
         //  Localize the ListView
         ListView listView = (ListView) findViewById(R.id.list);

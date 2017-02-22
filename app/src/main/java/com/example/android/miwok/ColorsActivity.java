@@ -26,15 +26,11 @@ public class ColorsActivity extends AppCompatActivity {
 
 
         //  Create array adapter
-//        ArrayAdapter<Word> itemsAdapter = new ArrayAdapter<Word>(this, android.R.layout.simple_list_item_1, words);
-        WordAdapter itemsAdapter = new WordAdapter(this, words);
+        WordAdapter itemsAdapter = new WordAdapter(this, words,R.color.category_colors);
 
         //  Localize the ListView
         ListView listView = (ListView) findViewById(R.id.list);
         //  Pass the array adapter into the ListView
         listView.setAdapter(itemsAdapter);
-
-        // set the color background
-//        listView.setBackgroundColor(getColor(R.color.category_colors));
     }
 }

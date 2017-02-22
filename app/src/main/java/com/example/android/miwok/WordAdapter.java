@@ -1,11 +1,13 @@
 package com.example.android.miwok;
 
 import android.app.Activity;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 public class WordAdapter extends ArrayAdapter<Word> {
 
     private static final String LOG_TAG = ArrayAdapter.class.getSimpleName();
+    private int mColorResourceId;
 
     /**
      * The context is used to inflate the layout file, and the list is the data we want
@@ -25,12 +28,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
      * @param context The current context. Used to inflate the layout file.
      * @param word    A List of Word objects to display in a list
      */
-    public WordAdapter(Activity context, ArrayList<Word> word) {
+    public WordAdapter(Activity context, ArrayList<Word> word, int colorResourceId) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
         // the second argument is used when the ArrayAdapter is populating a single TextView.
         // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
         // going to use this second argument, so it can be any value. Here, we used 0.
         super(context, 0, word);
+        mColorResourceId=colorResourceId;
     }
 
     /**
@@ -68,14 +72,18 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         // Find the TextView in the list_item.xml layout with the ID image
         ImageView image = (ImageView) listItemView.findViewById(R.id.img_image);
-        // Get the English/Default translation from the current object pair (Miwok/English) and set
-        // this text on the default TextView
-        image.setImageResource((currentWord.getImage()));
+        if (currentWord.hasImage()) {
+            image.setImageResource(currentWord.getImage());
+            image.setVisibility(View.VISIBLE);
+        } else {
+            image.setVisibility(View.GONE);
+        }
 
+        LinearLayout layTranslations = (LinearLayout) listItemView.findViewById(R.id.lay_translations);
+        layTranslations.setBackgroundColor(ContextCompat.getColor(getContext(),mColorResourceId));
 
         // Return the whole list item layout (containing 2 TextViews)
         // so that it can be shown in the ListView
         return listItemView;
-
     }
 }
