@@ -14,33 +14,52 @@ public class Word {
     private String mDefaultTranslation;
     private String mMiwokTranslation;
     private int mImageId; // path to the image
-    private boolean mHasImageProvided =FALSE ;
+    private boolean mHasImageProvided = FALSE;
+    private int mMiwokSound;
+    private boolean mHasSoundProvided = FALSE;
 
     // constructor withOUT image
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int miwokSound) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mHasImageProvided = FALSE;
+        mMiwokSound = miwokSound;
+        mHasSoundProvided = TRUE;
     }
-    // constructor with image
-    public Word(String defaultTranslation, String miwokTranslation, int imageId) {
+
+    // constructor with image AND sound
+    public Word(String defaultTranslation, String miwokTranslation, int imageId, int miwokSound) {
         mImageId = imageId;
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mHasImageProvided = TRUE;
-    }
-    public int getImage(){
-        return  mImageId;
-    }
-    public String getDefaultTranslation(){
-        return  mDefaultTranslation;
-    }
-    public String getMiwokTranslation(){
-        return  mMiwokTranslation;
+        mMiwokSound = miwokSound;
+        mHasSoundProvided = TRUE;
     }
 
-    public boolean hasImage(){
+
+    public int getImage() {
+        return mImageId;
+    }
+
+    public String getDefaultTranslation() {
+        return mDefaultTranslation;
+    }
+
+    public String getMiwokTranslation() {
+        return mMiwokTranslation;
+    }
+
+    public int getMiwokSound() {
+        return mMiwokSound;
+    }
+
+    public boolean hasImage() {
         return mHasImageProvided;
+    }
+
+    public boolean hasMiwokSound() {
+        return mHasSoundProvided;
     }
 
 }
