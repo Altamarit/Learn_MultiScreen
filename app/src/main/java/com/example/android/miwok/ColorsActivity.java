@@ -44,7 +44,7 @@ public class ColorsActivity extends AppCompatActivity {
 
     // Set Listener and capture the Click in the list view
     private ListView.OnItemClickListener mListViewClick =
-            new ListView.OnItemClickListener(){
+            new ListView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     // Get the object that was clicked
@@ -87,8 +87,6 @@ public class ColorsActivity extends AppCompatActivity {
             };
 
 
-
-
     /*
         Actions on STOP of the Activity
      */
@@ -127,6 +125,7 @@ public class ColorsActivity extends AppCompatActivity {
         words.add(new Word("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow,
                 R.raw.color_mustard_yellow));
 
+
         //  Get audio services
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
@@ -146,7 +145,7 @@ public class ColorsActivity extends AppCompatActivity {
 
     /**
      * Once the sound is "completed" (this is finished playing) then:
-     *    1- release resources.
+     * 1- release resources.
      */
     private void completedPlayerMiwok() {
         // If the media player is not null, then it may be currently playing a sound.
@@ -167,7 +166,7 @@ public class ColorsActivity extends AppCompatActivity {
 
     /**
      * Once the sound is "prepared" (this is fetched and ready to be played) then:
-     *    1- Play de Sound
+     * 1- Play de Sound
      */
     private void preparedPlayerMiwok() {
         //  Play the Sound
@@ -176,12 +175,12 @@ public class ColorsActivity extends AppCompatActivity {
 
     /**
      * Actions on click in the List View
-     *      1- Play de Sound in the Object -> details:
-     *          1- Request sound focus
-     *          1- Get the sound reference for the clicked object; build the URI
-     *          2- Create the media player
-     *          3- do and asyncronous preparation ---> Listener would trigger the PLAY
-     *          4- set the listener for sound finished ---> Listener would release the resources
+     * 1- Play de Sound in the Object -> details:
+     * 1- Request sound focus
+     * 1- Get the sound reference for the clicked object; build the URI
+     * 2- Create the media player
+     * 3- do and asyncronous preparation ---> Listener would trigger the PLAY
+     * 4- set the listener for sound finished ---> Listener would release the resources
      */
     private void processItemClicked(Word itemClicked) throws IOException {
         // If the object has a sound to be plaid then play it
