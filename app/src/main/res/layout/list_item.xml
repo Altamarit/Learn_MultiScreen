@@ -2,6 +2,7 @@
 
 <!-- Layout for a single list item -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
@@ -17,22 +18,38 @@
     <LinearLayout
         android:id="@+id/lay_translations"
         android:layout_width="0dp"
-        android:layout_height="88dp"
+        android:layout_height="@dimen/list_item_height"
         android:layout_weight="1"
         android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:paddingLeft="16dp">
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/lbl_miwok_translation"
-            style="@style/ListStyle"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="16dp">
 
+            <TextView
+                android:id="@+id/lbl_miwok_translation"
+                style="@style/ListStyle"
+                android:textStyle="bold"
+                tools:text="NIWOK TRANSLATION" />
 
-        <TextView
-            android:id="@+id/lbl_default_translation"
-            style="@style/ListStyle" />
+            <TextView
+                android:id="@+id/lbl_default_translation"
+                style="@style/ListStyle"
+                tools:text="ENG TRANSLATION" />
 
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_play_arrow"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_play_arrow_white_36dp" />
     </LinearLayout>
 
 </LinearLayout>
